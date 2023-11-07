@@ -1,0 +1,533 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: rgb(0, 0, 0);
+    
+}
+
+.containRT{
+    width: 10em;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+.retour{
+    width: 2em;
+    height: 2em;
+    /* background-color: rgb(207, 207, 207); */
+    margin-right: 10px;
+    margin-left: 5px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.careBack{
+    width: 1em;
+    height: 1em;
+    border: 5px solid #ffffff;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    margin-left: 5px;
+    transition: 0.5s;
+
+    transform: rotate(-45deg);
+}
+.careBack:hover{
+    border: 5px solid #5bb0d8;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    transition: 1s;
+}
+.pagename{
+    /* font-weight: bold;    */
+    font-size: 1.5em;
+    margin-left: 10px;
+    /* color: #5bb0d8; */
+    color: white;
+}
+.parametre{
+    /* border: 1px solid blue; */
+    width: 2.5em;
+    height: 2.5em;
+    margin-right: 10px;
+    border-radius: 2em;
+    background-color: #0c0c0ce0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    color: white;
+}
+.parametre:hover i{
+    transform: rotate(45deg);
+    color: #5bb0d8;
+    transition: 0.5s;
+}
+.parametre i{
+    transition: 0.5s;
+    font-size: 1.2em;
+}
+header{
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgb(255, 255, 255); */
+    background-color: #1b1b1b;
+    align-items: center;
+}
+.sect1{
+    /* max-width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    /* flex-flow: wrap; */
+
+    margin-top: 3px;
+}
+.containAmie{
+    
+    width: 25em;
+    height: 89vh;
+    /* position: relative; */
+    background-color: #1b1b1b;
+    color: white;
+}
+.containMess{
+    /* border: 1px solid  darkslategrey; */
+    height: 89vh;
+    width: 59.5em;
+    margin-right: 7px;
+
+    display: flex;
+    /* margin-right: 10em; */
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+.search{
+    width: 25em;
+    height: 4em;
+    /* margin-top: 1em; */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+.Itext{
+    /* width: 17.5em; */
+    width: 17.5em;
+
+    height: 2.5em;
+
+    padding-left: 5px;
+    font-size: 15px;
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.icon1{
+    /* border: 1px solid red; */
+    width: 3em;
+    height: 2.4em;
+    /* background-color: rgb(91, 176, 216); */
+    border-radius: 10px;
+    /* border-bottom-right-radius: 10px; */
+    color: rgb(0, 0, 0);
+    /* margin-right: 1em; */
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon1 i{
+    font-size: 1.2em;
+    transition: 1s;
+    color: white;
+}
+.icon1 i:hover{
+    color: #5bb0d8;
+    transition: 0.5s;
+}
+.Amis{
+    margin-left: 1em;
+}
+.listeAmie{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1em;
+}
+.amie{
+    width: 19.4em;
+    /* border: 1px solid rgb(71, 71, 71); */
+    height: 4.5em;
+    margin-bottom: 5px;
+    visibility: hidden;
+    
+    display: flex;
+    align-items: center;
+}
+.profil{
+    width: 3.5em;
+    height: 3.5em;
+    background-color: rgb(131, 131, 131);
+    border-radius: 30px;
+
+    margin: 0 5px 0 0px;
+}
+.name{
+    /* margin-top: -2em; */
+    height: 3.5em;
+    width: 15em;
+}
+.pseudo{
+    /* border: 1px solid; */
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+.resumMess{
+    /* border: 1px solid; */
+    font-size: 12px;
+    font-weight: lighter;
+    color: rgb(114, 114, 114);
+}
+.btnAcc{
+    /* border: 1px solid; */
+    margin-top: 8px;
+}
+.btnAS{
+    width: 7em;
+    border: none;
+    background-color: rgb(207, 207, 207);
+    border-radius: 5px;
+    height: 1.5em;
+    font-weight: bold;
+}
+.acc{
+    background-color: #5bb0d8;
+    color: white;
+}
+.headMess{
+    width: 100%;
+    height: 4em;
+    background-color: #1b1b1b;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.boitMess{
+    background-color: rgb(0, 0, 0);
+    height: 28.3em;
+    /* height: auto; */
+    width: 100%;
+    border-left: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    overflow: auto;
+/* 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; */
+
+}
+.envMess{
+    background-color: #1b1b1b;
+    height: 4em;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pro-pseu{
+    /* border: 1px solid red; */
+    width: 15em;
+    height: 100%;
+    /* border-left: 3px solid rgb(211, 211, 211); */
+
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+.profil2{
+    margin-left: 5px;
+    border: 2px solid rgb(91, 176, 216);
+
+    position: relative;
+}
+.indice{
+    width: 12px;
+    height: 12px;
+    background-color: rgb(5, 168, 5);
+    border-radius: 10px;
+
+    position: absolute;
+    bottom: 0;
+    right: 1px;
+}
+.optionDiscu{
+    width: 3em;
+    height: 80%;
+    /* border: 1px solid; */
+
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+.point{
+    width: 8px;
+    height: 8px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    margin: 1px;
+}
+#Ichat{
+    width: 25em;
+    height: 2.5em;
+    border-radius: 15px;
+    border-color: #1b1b1b;
+    border: 1px solid;
+    margin-right: -25em;
+    padding-left: 10px;
+    /* padding-top: 2px; */
+    /* text-align: center; */
+        
+    font-size: 14px;
+    font-weight: bold;
+    color: #1b1b1b;
+
+}
+.listMess{
+    width: 100%;
+    height: 3.5em;
+    /* visibility: hidden;     */
+    /* border: 1px solid rgb(255, 255, 255); */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+/* .listMess{
+    margin-top: 25em;
+} */
+.mess{
+    background-color: #5bb0d8;
+    padding: 5px;
+    width: auto;
+    margin-right: 10px;
+    /* display: none; */
+
+    max-width: 20em;
+    border-radius: 10px;
+    height: auto;
+}
+.messEnv{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    /* text-align: center; */
+    padding-left: 5px;
+}
+/* .messEnCours{
+    width: 40em;
+    height: 3em;
+    border-radius: 15px;
+    border: 1px solid;
+    margin-right: -25em;
+    padding-left: 10px;
+
+    transition: 1s;
+} */
+.outilUser{
+    width: 10em;
+    height: 2.5em;
+    /* border: 1px solid; */
+    border-radius: 15px;
+    margin-left: 1em;
+
+    display: flex;
+    align-items: center;
+
+}
+.jaime{
+    width: 2.5em;
+    height: 2.5em;
+    /* border: 1px solid; */
+    border-radius: 20px;
+    margin-right: 1em;
+    /* margin-left: -1em; */
+    background-color: #1b1b1b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jaime i{
+    font-size: 22px;
+    color: #5bb0d8;
+}
+
+.insPhoto{
+    width: 2.2em;
+    height: 2.2em;
+    /* border: 1px solid; */
+    border-radius: 20px;
+    margin-left: 2px;
+    background-color: #1b1b1b;
+    margin: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.insPhoto i{
+    font-size: 22px;
+    color: #5bb0d8;
+}
+.profilAmis{
+    background-color: rgb(218, 218, 218);
+    border-radius: 5em;
+    border: 1px solid;
+    width: 5em;
+    height: 5em;
+}
+.containPAmis{
+    /* border: 1px solid; */
+    width: 100%;
+    height: 25em;
+    padding-top: 4em;
+    color: white;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+.userName{
+    margin: 10px;
+}
+.amitié,.habitation,.travaille{
+    /* color: rgba(46, 46, 46, 0.849); */
+    color: white;
+    font-size: 15px;
+    font-weight: lighter;
+}
+.containBtnP{
+    margin-top: 5px;
+}
+.containBtnP .btnP{
+    width: 6em;
+    background-color: rgb(91, 176, 216);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.541);
+}
+.indication{
+    /* border: 1px solid; */
+    width: 15em;
+    height: 10em;
+    text-align: center;
+    margin-top: 2em;
+  
+    position: absolute;
+    top: 14em;
+}
+
+.textIndic{
+    font-size: 15px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    /* margin-top: 25px; */
+    
+}
+.btnAjout{
+    width: 7em;
+    height: 1.7em;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: red;
+}
+
+.textAmis{
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    /* color: rgb(91, 176, 216); */
+}
+
+/* Menu bar dans Amis */
+
+.navMenu{
+    /* border: 1px solid; */
+    height: 3em;
+    margin-top: 5em;
+    /* position: fixed; */
+}
+.containLine{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+.sous-line{
+    width: 19em;
+}
+.navMenu .containNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+.navMenu .containNav .nav-list{
+    list-style-type: none;
+    width: 7em;
+    height: 2em;
+    border-radius: 15px;
+    font-size: 13px;
+    background-color: #0c0c0ce0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-list1{
+    margin: 0em -6em 0em -6em;
+}
+.navMenu .containNav .nav-list .nav-link{
+    text-decoration: none;
+    color: white;
+}
+.nav-list0{
+    background-color: rgb(91, 176, 216)!important;
+    transition: 0.5s;
+}
+.nav-link0{
+    color: white !important;
+    transition: 0.5s;
+}
