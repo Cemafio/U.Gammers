@@ -289,6 +289,31 @@ body{
     /* border: 1px solid red; */
     border-radius: 10px;
     background-color: #1b1b1b;
+    position: relative;
+}
+.sousformVideo{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.btnPlay{
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 2em;
+    background-color: #000000cb;
+
+    position: absolute;
+    top: 30%;
+    left: 39%;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.btnPlay i{
+    color: white;
+    font-size: 1.5em;
+    margin-left: 6px;
 }
 .textVideo{
     width: 100%;
