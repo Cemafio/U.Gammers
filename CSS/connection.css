@@ -1,0 +1,189 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+@font-face {
+    font-family: myfont;
+    src: url('../fonts/fonts/blowbrush.ttf');
+}
+
+body{
+    font-family: sans-serif,Arial, Helvetica, sans-serif;
+    background-color: #000000;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.containFS{
+    /* border: 1px solid white; */
+    width: 42em;
+    height: 25em;
+    border-radius: 1em;
+    background-color: #1b1b1b;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.containSary{
+    /* border: 1px solid white; */
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    width: 16em;
+    height: 100%;
+
+    background: url('../Img/game5.jpg') #00000036;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -3em;
+    /* background-position-x: -10px; */
+    background-blend-mode: multiply;
+}
+.navMenu{
+    margin-top: 2em;
+    height: 5em;
+    width: 9em;
+
+    float: right;
+    /* margin-right: 5px; */
+
+    display: flex;  
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.navMenu .navListe{
+    list-style-type: none;
+    width: 7em;
+    height: 2.5em;
+    margin-bottom: 10px;
+    /* border: 1px solid white; */
+    cursor: pointer;
+    padding-left: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    display: flex;
+    align-items: center;
+
+}
+.navListe:hover{
+    background-color: #1b1b1b8c;
+}
+.navLink{
+    color: white;
+    /* border: 1px solid white; */
+    text-decoration: none;
+    /* width: 6em; */
+}
+.listSelct{
+    background-color: #1b1b1b;
+    transition: 0.5s;
+
+}
+.listSelct:hover{
+    background-color: #1b1b1b;
+    transition: 0.5s;
+
+}
+.containForm{
+    /* border:1px solid white; */
+    width: 60%;
+    height: 100%;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* .Logo{
+
+} */
+.textLogo{
+    width: 75%;
+    /* border: 1px solid white; */
+    text-align: center;
+    height:2em;
+    font-size: 1.8em;
+    color: #fff;
+    font-family: myfont;
+    /* color: #5bb0d8; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form3{
+    width: 75%;
+    height: 12em;
+    /* border: 1px solid white; */
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.containInpt{
+    width: inherit;
+    /* height: 2em; */
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+}
+.containIcon{
+    width: 1.5em;
+    height: 1.5em;
+    /* border:  1px solid white; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containIcon i{
+    color: white;
+}
+#Inom{
+    width: 16em;
+    height: 1.8em;
+    background-color: #1b1b1b;
+    border: none;
+    color: whitesmoke;
+    padding-left: 5px;
+}
+/* .containBtn{ */
+    /* text-align: center; */
+/* } */
+.btnSub1{
+    width: 10em;
+    height: 2.5em;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background-color: #5bb0d8;
+    color: white;
+}
+.textError{
+    color: #f73535;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+/* Modification pour la page d'inscription */
+.modif1{
+    margin-top: -2em;
+    transition: 1s;
+}
+.fmodif1{
+    margin-top: -1em;
+    height: 20em;
+}
