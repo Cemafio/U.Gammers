@@ -201,3 +201,57 @@ form{
     height: 2.2em;
     margin-top: 10px;
 }
+.videAide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vid{
+    width: 9em;
+    height: 5em;
+    margin: 5px;
+
+    position: relative;
+}
+.vid img{
+    width: 100%;
+    height: 90%;
+}
+.play{
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    background-color: #000000ce;
+
+    position: absolute;
+    top: 1.5em;
+    left: 3.5em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vid i{
+    /* color: #ff00aa; */
+    color: #5bb0d8;
+    margin-right: -5px;
+}
+.code{
+    width: 100%;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.textCode{
+    background-color: #1b1b1b;
+    min-width: 11em;
+    border-radius: 2px;
+    /* margin: 5px; */
+    font-size: 13px;
+    padding: 2px;
+    text-align: center;
+
+    color: white;
+}
