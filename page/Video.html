@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../fontawesome/fontawesome/css/all.min.css">
     <script src="../JS/App.js" defer></script>
+    <script src="../JS/slideVideo.js" defer></script>
     <link rel="stylesheet" href="../CSS/App.css">
     <title>U.Gammeur</title>
 </head>
@@ -21,14 +22,9 @@
                     <div class="icon1">
                        <i class="fas fa-home"></i>
                     </div>
-                    <p class="text-icon1"><a href="../Acceuil.html">Accueil</a></p>
+                    <p class="text-icon1"><a href="Acceuil.html">Accueil</a></p>
                 </li>
-                <!-- <li class="menu2-contain2-1 menuli2 list" id="list2">
-                    <div class="icon1">
-                        <img src="../Img/Cesar.jpg" alt="" class="sary">
-                    </div>
-                    <p class="text-icon1"><a href="profil.html"> Profiles</a></p>
-                </li> -->
+                
             </ul>
             
             <ul>
@@ -200,7 +196,7 @@
     <section class="contenuProfil">
             <div class="miniProfil">
                 <div class="min_profilUser">
-
+                    <img src="../Img/perso.jpg" alt="" style="width: 95%; height: 95%;border-radius: 3em;">
                 </div>
                 <div class="nameUser">
                     <p>Nom utilisateur</p>
@@ -247,7 +243,14 @@
                 </div>
             </div>
             <div class="miniProfil2">
-                
+                <video class="source" preload="auto" autoplay muted playsinline>
+                    <source src="../video/video1.mp4" ></source>
+                    <source src="../video/video1.webm" class=""></source>
+                    <source src="../video/video1.ogg" class=""></source>
+                </video>
+                <div class="bar">
+                    <div class="progressBar"></div>
+                </div>
             </div>
 
            

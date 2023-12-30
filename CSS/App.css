@@ -610,7 +610,7 @@ body{
     }
     #list1{
         border-color: #5bb0d8;
-        transition: 1s;
+        /* transition: 1s; */
     }
     /*Accordeon*/
     .menu3-contain{
@@ -793,43 +793,115 @@ body{
     /* border: 1px solid white; */
 
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .miniProfil{
     width: 15em;
-    height: 15em;
-    /* margin-top: 1em; */
-    /* margin-right: 10px; */
+    height: auto;
     border: none;
     border-radius: 1em;
     background-color: #1b1b1b;
-    /* position: fixed;
-    right: 1em; */
-    /* border: 2px solid #5bb0d8; */
+    margin-bottom: 2em;
+    overflow: hidden;
+    position: relative;
 
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding: 8px;
+    padding: 4px;
 }
+.badgeVip{
+    width: 2em;
+    height: 1.2em;
+    border-radius: 2px;
+    background-color: #5bb0d8;
+
+    position: absolute;
+    left: 1px;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.badgeVip .textVip{
+    color: #525252;
+    font-size: 13px;
+    font-weight: bold;
+}
+.containRect{
+    width: 100%;
+    height: 5em;
+    /* border: 1px solid white; */
+
+    position: absolute;
+    right: -1em;
+
+    transform: rotate(-45deg);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.rectangle{
+    width: 16em;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #5bb0d8;
+}
+.rect2{
+    width: 13em;
+}
+.rect3{
+    width: 12em;
+}
+
 .miniProfil2{
     width: 15em;
-    height: 15em;
+    height: 9em;
     
     border: none;
     border-radius: 1em;
     background-color: #1b1b1b;
-    padding: 8px;
+    overflow: hidden!important;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 2px;
 
+}
+.miniProfil2 video{
+    width: 99%;
+    height: 100%;
+    border-radius: 1em;
+    /* height: 15em; */
+}
+.bar{
+    width: 100%;
+    height: 2px;
+}
+.progressBar{
+    width: 2%;
+    height: 100%;
+    background-color: #5bb0d8;
 }
 .min_profilUser{
     width: 6em;
     height: 6em;
-    border: 1px solid white;
+    border: 1px dashed #5bb0d8;
     border-radius: 3em;
+
+    position: relative;
+    z-index: 10;
     /* background-color: rgb(255, 255, 255); */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
    
 }
 .nameUser{
@@ -837,11 +909,16 @@ body{
     font-size: 15px;
     font-weight: bold;
     margin: 10px;
+
+    position: relative;
+    z-index: 10;
 }
 .containInformation{
     width: 100%;
     height: 4em;
     margin-top: 15px;
+    position: relative;
+    z-index: 10;
     /* border: 1px solid;    */
 
     display: flex;
