@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../fontawesome/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="../Img/Capture d’écran 2023-10-23 214447.png" type="image/x-icon">
     <script src="../JS/App.js" defer></script>
     <script src="../JS/slideVideo.js" defer></script>
 
