@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    include 'public/base.php';
+    include 'public/function.php';
+    $retour = "";
+
+    if(isset($_POST["btnSub1"])){
+        $retour = connection(bdd());
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +27,8 @@
             <div class="containSary">
 
                 <ul class="navMenu">
-                    <a href="Connéction.html" class="navLink"><li class="navListe listSelct">Connection</li></a>
-                    <a href="inscription.html" class="navLink"><li class="navListe">Inscription</li></a>
+                    <a href="index.php" class="navLink"><li class="navListe listSelct">Connection</li></a>
+                    <a href="inscription.php" class="navLink"><li class="navListe">Inscription</li></a>
                 </ul>
 
             </div>
@@ -36,9 +47,9 @@
                         <div class="containIcon">
                             <i class="fas fa-unlock"></i>
                         </div>
-                        <input type="text" name="pass" id="Inom" placeholder="Votre mot de pass">
+                        <input type="password" name="pass" id="Inom" placeholder="Votre mot de pass">
                     </div>
-                    <p class="textError"></p>
+                    <p class="textError"><?= $retour;?></p>
                     <div class="containBtn">
                         <button type="submit" name="btnSub1" class="btnSub1">Connécté</button>
                     </div>

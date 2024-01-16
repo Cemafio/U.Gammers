@@ -12,15 +12,10 @@ const sousForm = document.querySelector('.sousForme');
 const textarea = document.querySelector('#Ilegend');
 
 const backG = document.querySelectorAll('.back');
-// const cFontB = document.querySelectorAll('.cFontB');
 const fusFont = document.querySelectorAll('.fusFont');
 
 const cfont = document.querySelector('.font').firstChild.nextSibling;
 let position = 0;
-
-const  btnX = document.querySelector('.btnX');
-const formulaireP = document.querySelector('.formulaireP');
-const btn0 = document.querySelectorAll('.btn0');
 
 const btn2 = document.querySelector('.btn2');
 const cadrePub = document.querySelector('.cadrePub');
@@ -349,22 +344,10 @@ for(let i=0;i<backG.length;i++){
     
 }
 
-btnX.addEventListener('click',function () {
-    // console.log('Click detecter :)');
-    formulaireP.style.visibility = "hidden";
-})
 
-for(let i=0; i<btn0.length ;i++){
-
-    btn0[i].addEventListener('click',function () {
-        // alert('click detecter')
-        formulaireP.style.visibility = "visible";
-    })
-    
-}
 // console.log(Ifile);
 
-for(let i=0;;i++){
+for(let i=0; i<btn0.length; i++){
 
     storie[i].addEventListener('click',()=>{
 

@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    background-color: #000000;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+}
+.containAll{
+    /* border: 1px solid #fff; */
+    width: 60%;
+    height: auto;
+}
+.cadreHead{
+    width: 100%;
+    height: 4.5em;
+}
+.containAll .cadrePub{
+    width: 100%;
+    height: auto;
+    background-color: #1b1b1b;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 1em;
+}
+.cadreReaction{
+    width: 100%;
+    height: 2.5em;
+
+    display: flex;
+    align-items: center;
+}
+.containImg{
+    width: 100%;
+    height: 21.6em;
+}
+.containImg img{
+    width: 100%;
+    height: 100%;
+}
+.cadreProfil{
+    /* border: 1px solid white; */
+    width: 20em;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+.cadreProfil .profil{
+    border: 1px solid #ffffffad;
+    width: 4em;
+    height: 4em;
+    border-radius: 2em;
+    margin:0px 5px 0px 8px;
+}
+.profil img{
+    width: 100%;
+    height: 100%;
+    border-radius: 2em;
+}
+.containNameDate{
+    color: white;
+    margin-left: 2px;
+}
+.containNameDate .p1{
+    font-weight: bold;
+    font-size: 13px;
+}
+.containNameDate .p2{
+    font-weight: bold;
+    font-size: 10px;
+}
+.cadrelike{
+    width: 5em;
+    height: 2em;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #0a0a0ad2;
+    color: white;
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+}
+.cadrelike i{
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.cadrecoms{
+    width: 5em;
+    height: 2em;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #0a0a0ad2;
+    color: white;
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+}
+.cadrecoms i{
+    margin-left: 5px;
+    margin-right: 10px;
+}
+#formComs{
+    width: 100%;
+    height: 4em;
+    background-color: #1b1b1b;
+    margin-top: 1px;
+
+    display: flex;
+    align-items: center;
+}
+#Iarea{
+    width: 40em;
+    height: 3em;
+    border-radius: 5px;
+    border: 1px solid #ffffffad;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #0a0a0ad2;
+    color: white;
+    padding-left: 5px;
+}
+#btnComs{
+    width: 7em;
+    height: 3em;
+}
+.listComs{
+    width: 100%;
+    height: auto;
+}
+.affComs{
+    /* border: 1px solid white; */
+    width: 30em;
+    margin: 10px;
+
+    display: flex;
+    /* justify-content: space-around; */
+}
+.profil2{
+    width: 2em;
+    height: 2em;
+    border: 1px solid white;
+    border-radius: 2em;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text{
+    background-color: #1b1b1b;
+    width: 20em;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+.text strong{
+    margin-bottom: 3px;
+}
+.containImgOrTxt {
+    text-align: center;
+    height: 18.5em;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+.contain2{
+    background-color: #0a0a0ad2;
+}

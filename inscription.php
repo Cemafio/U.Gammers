@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include 'public/base.php';
+    include 'public/function.php';
+
+    $err= '';
+    // bdd();
+    if(isset($_POST["btnSub1"])){
+        $err = inscription(bdd());
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +29,8 @@
             <div class="containSary">
 
                 <ul class="navMenu">
-                    <a href="Connéction.html" class="navLink"><li class="navListe ">Connection</li></a>
-                    <a href="inscription.html" class="navLink"><li class="navListe listSelct">Inscription</li></a>
+                    <a href="index.php" class="navLink"><li class="navListe ">Connection</li></a>
+                    <a href="inscription.php" class="navLink"><li class="navListe listSelct">Inscription</li></a>
                 </ul>
 
             </div>
@@ -30,34 +43,36 @@
                         <div class="containIcon">
                             <i class="fas fa-user"></i>
                         </div>
-                        <input type="text" name="nom" id="Inom" placeholder="Votre nom">
+                        <input type="text" name="nom" id="Inom" placeholder="Votre nom" value="<?php if(isset($_POST['nom'])){ echo $_POST['nom']; }?>">
                     </div>
                     <div class="containInpt">
                         <div class="containIcon">
                             <i class="fas fa-address-book"></i>
                         </div>
-                        <input type="email" name="email" id="Inom" placeholder="Votre adress email">
+                        <input type="email" name="email" id="Inom" placeholder="Votre adress email" value="<?php if(isset($_POST['email'])){ echo $_POST['email']; }?>">
                     </div>
                     <div class="containInpt">
                         <div class="containIcon">
                             <i class="fas fa-address-book"></i>
                         </div>
-                        <input type="email" name="email" id="Inom" placeholder="Verrification adress email">
+                        <input type="email" name="vemail" id="Inom" placeholder="Verrification adress email" value="<?php if(isset($_POST['vemail'])){ echo $_POST['vemail']; }?>">
                     </div>
                     <div class="containInpt">
                         <div class="containIcon">
                             <i class="fas fa-unlock"></i>
                         </div>
-                        <input type="password" name="pass" id="Inom" placeholder="Votre mot de pass">
+                        <input type="password" name="pass" id="Inom" placeholder="Votre mot de pass" value="<?php if(isset($_POST['pass'])){ echo $_POST['pass']; }?>">
                     </div>
                     <div class="containInpt">
                         <div class="containIcon">
                             <i class="fas fa-unlock"></i>
                         </div>
-                        <input type="password" name="pass" id="Inom" placeholder="Verrification mot de pass">
+                        <input type="password" name="vpass" id="Inom" placeholder="Verrification mot de pass" value="<?php if(isset($_POST['vpass'])){ echo $_POST['vpass']; }?>">
                     </div>
+                    <label for="Isary" id="ISousForme"><i class="fas fa-user-circle"></i> Votre profil </label>
+                    <input type="file" name="fichier" id="Isary">
                     
-                    <p class="textError"></p>
+                    <p class="textError"><?= $err;?></p>
                     <div class="containBtn">
                         <button type="submit" name="btnSub1" class="btnSub1">Inscrire</button>
                     </div>

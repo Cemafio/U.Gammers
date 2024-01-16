@@ -1,3 +1,22 @@
+<?php
+    session_start();
+    include '../public/base.php';
+    include '../public/function.php';
+        
+    $sary = profilUser(bdd());
+    $listVideo = afficheVideo(bdd());
+    $err = '';
+
+    if(isset($_POST['sub'])){
+        $err = creatVideo(bdd(), $sary);
+    }
+
+    $list1='list2';
+    $list2='list1';
+    $list3='list3';
+    $list4='list5';
+    $list5='list5';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,59 +26,13 @@
     <link rel="stylesheet" href="../fontawesome/fontawesome/css/all.min.css">
     <script src="../JS/App.js" defer></script>
     <script src="../JS/slideVideo.js" defer></script>
+    <script src="../JS/form.js" defer></script>
     <link rel="stylesheet" href="../CSS/App.css">
     <title>U.Gammeur</title>
 </head>
 <body>
    <section class="containAll2">
-    <nav class="menu2">
-        <div class="menu2-contain">
-            <div class="containLogo">
-                <p class="textLogo">U.Gammeur</p>
-            </div>
-            <ul>
-                <li class="menu2-contain2-1 menuli2 list" id="">
-                    <div class="icon1">
-                       <i class="fas fa-home"></i>
-                    </div>
-                    <p class="text-icon1"><a href="Acceuil.html">Accueil</a></p>
-                </li>
-                
-            </ul>
-            
-            <ul>
-                <li class="menu2-contain2-1 menuli2 list" id="list1">
-                    <div class="icon1">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <p class="text-icon1"><a href="#">Video</a></p>
-                </li>
-                <li class="menu2-contain2-1 menuli2 list" id="list4">
-                    <div class="icon1">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <p class="text-icon1"> <a href="Game.html">Gamme</a></p>
-                </li>
-                <li class="menu2-contain2-1 menuli2 list" id="list5">
-                    <div class="icon1">
-                        <i class="fas fa-folder"></i>
-                    </div>
-                    <p class="text-icon1"><a href="Music.html">Play list</a></p>
-                </li>
-                <li class="menu2-contain2-1 menuli2 list" id="list5">
-                    <div class="icon1">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <p class="text-icon1"><a href="page/Music.html">Paramètre</a></p>
-                </li>
-            </ul>
-            <div class="btnPubl">
-                <div class="containBtn0">
-                    <button class="btn0 ">Faire une publication</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include 'header.php';?>
     <nav class="containerAll">
         <div>
          <ul>
@@ -94,7 +67,7 @@
     <section class="containePrincipale">
         <div class="containVideo">
             <div class="titreV">
-                <p>Video le plus populaires</p>
+                <p>Video suggerée</p>
                 <div class="deplacementVideo">
                     <div class="back2">
                         <i class="fas fa-arrow-alt-circle-left"></i>
@@ -109,37 +82,37 @@
                 <div class="video">
                     <div class="vVideo">
                         <img class="sousformVideo" src="../Img/Asphalt 9 legends.jpg" alt="" srcset="">
-                        <a href="videoPlay.htm"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
+                        <a href="videoPlay.php"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
                     </div>
                     <div class="textVideo">
                         <div class="profilPubVideo">
                         </div>
                         <div class="textVComment">
-                            <p class="textC">Le commentaire de la persone qui publie  cette video</p>
+                            <p class="textC"><strong>Name User</strong><br>Le commentaire de la persone qui publie  cette video</p>
                         </div>
                     </div>
                 </div>
                 <div class="video">
                     <div class="vVideo">
                         <img class="sousformVideo" src="../Img/44+ Dark Souls 3 wallpapers ·① Download free full HD backgrounds for desktop computers and smartphones in any resolution desktop, Android, iPhone, iPad 1920x1080, 2560x1440, 320x480, 1920x1200 etc_ WallpaperTag.jpg" alt="" srcset="">
-                        <a href="videoPlay.htm"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
+                        <a href="videoPlay.php"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
                     </div>
                     <div class="textVideo">
                         <div class="profilPubVideo"></div>
                         <div class="textVComment">
-                            <p class="textC">Le commentaire de la persone qui publie  cette video</p>
+                        <p class="textC"><strong>Name User</strong><br>Le commentaire de la persone qui publie  cette video</p>
                         </div>
                     </div>
                 </div>
                 <div class="video">
                     <div class="vVideo">
                         <img class="sousformVideo" src="../Img/Nveau Jeux.jpg" alt="" srcset="">
-                        <a href="videoPlay.htm"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
+                        <a href="videoPlay.php"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
                     </div>
                     <div class="textVideo">
                         <div class="profilPubVideo"></div>
                         <div class="textVComment">
-                            <p class="textC">Le commentaire de la persone qui publie  cette video</p>
+                        <p class="textC"><strong>Name User</strong><br>Le commentaire de la persone qui publie  cette video</p>
                         </div>
                     </div>
                 </div>
@@ -155,44 +128,28 @@
                     </div>
                 </div>
             </div>
-            <div class="video">
-                <div class="vVideo">
-                    <img class="sousformVideo" src="../Img/GTA.jpg" alt="" srcset="">
-                    <a href="videoPlay.htm"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
-                </div>
-                <div class="textVideo">
-                    <div class="profilPubVideo"></div>
-                    <div class="textVComment">
-                        <p class="textC">Le commentaire de la persone qui publie  cette video</p>
+            <?php
+                foreach($listVideo as $video):
+            ?>
+                <div class="video">
+                    <div class="vVideo">
+                        <img class="sousformVideo" src="../Img/<?= $video['poster'];?>" alt="" srcset="">
+                        <a href="videoPlay.php?di=<?= $video['id'];?>"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
+                    </div>
+                    <div class="textVideo">
+                        <div class="profilPubVideo" style="overflow:hidden;">
+                            <img src="../Img/<?= $video['profilUser'];?>" alt="" srcset="" style="width:100%;height:100%;">
+                        </div>
+                        <div class="textVComment">
+                            <p class="textC"><strong><?= $video['userPub'];?></strong><br><?= $video['text'];?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="video">
-                <div class="vVideo">
-                    <img class="sousformVideo" src="../Img/spider.jpg" alt="" srcset="">
-                        <a href="videoPlay.htm"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
-                </div>
-                <div class="textVideo">
-                    <div class="profilPubVideo"></div>
-                    <div class="textVComment">
-                        <p class="textC">Le commentaire de la persone qui publie  cette video</p>
-                    </div>
-                </div>
-            </div>
-            <div class="video">
-                <div class="vVideo">
-                    <img class="sousformVideo" src="../Img/Witcher.jpg" alt="" srcset="">
-                    <a href="videoPlay.htm"><div class="btnPlay"><i class="fas fa-play"></i></div></a>
-                </div>
-                <div class="textVideo">
-                    <div class="profilPubVideo"></div>
-                    <div class="textVComment">
-                        <p class="textC">Le commentaire de la persone qui publie  cette video</p>
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </section>
+            <?php
+                endforeach;
+            ?>
+        </div>
+    </section>   <!--  -->
     <section class="contenuProfil">
             <div class="miniProfil">
                 <div class="min_profilUser">
@@ -252,33 +209,30 @@
                     <div class="progressBar"></div>
                 </div>
             </div>
-
-           
-
-        <!-- Carte de publication -->
-            <!-- <div class="containPub">
-                <div  class="boite2Pub">
-                    <div class="texPub">
-                       <div class="containSaryAnarana">
-                            <div class="sary2"></div>
-                            <div class="anarana2">
-                                <p >Nom utilisateur</p>
-                            </div>
-                       </div>
-                       <div class="close2">
-                         <p class="antAnarana">X</p>
-                       </div>
-                    </div>
-                    <div class="phot"></div>
-                    <div class="reaction">
-                        <div class="boiteReaction"></div>
-                        <div class="nbrReaction"></div>
-                    </div>
-                </div>
-            </div> -->
+        
 
     </section>
    </section>
-    
+    <section class="pubVideo">
+        <form action="" method="post">
+            <button type="button" class='close'>x</button>
+            <h4>VIDEO</h4>
+            <div  class="poster">
+                <img src="" alt="" srcset="" style="width:100%;height:100%;" class="img1">
+                <label for="Ifile1" class='chose'><i class="fas fa-plus-circle"></i></label>
+                <div class="play2">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <input type="file" name="file1" id="Ifile1">
+
+            <label for="Ifile2" class="linkVideo">Ajout video <div class="verrif"><i class="fas fa-check"></i></div></label>
+            <input type="file" name="file2" id="Ifile2">
+
+            <textarea  name="text" id="Itext" cols="30" rows="10" placeholder="Votre legende "></textarea>
+            <p class="err" style='color:red;font-size:11px;text-align:center;margin-bottom:5px;'><?= $err;?></p>
+            <input type="submit" value="Publier" id="Isub" name="sub">
+        </form>
+    </section>
 </body>
 </html>

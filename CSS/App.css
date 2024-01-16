@@ -329,6 +329,7 @@ body{
     width: 3em;
     height: 3em;
     border-radius: 2em;
+    margin-top: -10px;
     /* background-color: #ffffff; */
     border: 1px dashed #5bb0d8;
 }
@@ -342,8 +343,11 @@ body{
     align-items: center;
 }
 .textC{
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 0.25px;
+}
+.textC strong{
+    font-size: 13px;
 }
 .titreV{
     height: 2em;
@@ -516,15 +520,18 @@ body{
         color: rgba(0, 0, 0, 0.74);
     }
     .containPub{
+        width: 100%!important;
+
         display: flex;
         justify-content: center;
         margin-top: 1em;
     }
     .boite2Pub{
-        background-color: white;
+        background-color: #1b1b1b;
+        color: #fff;
         box-shadow: 1px 1px 5px black;
-        width: 30em;
-        height: 25.5em;
+        width: 92%;
+        height: auto;
         border-radius: 10px;
     }
     .texPub{
@@ -532,17 +539,71 @@ body{
         display: flex;
         justify-content: space-between;
     }
+    .legende2{
+        /* border: 1px solid black; */
+        height: 3em;
+    }
+    .legende2 .textLegende2{
+        width: 100;
+        height: 100%;
+        padding-left: 0.5em;
+
+        display: flex;
+        align-items: center;
+    }
     .phot{
         height: 19em;
         background-color:  rgb(179, 179, 179);
     }
     .reaction{
         height: 2.5em;
+        width: auto;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+
         display: flex;
-        flex-direction: row wrap;
+        flex-direction: row;
         justify-content: flex-start;
+        align-items: center;
+    }
+    .boiteReaction{
+        width: 4em;
+        height: 1.6em;
+        border: none;
+        border-radius: 7px;
+        background-color: #0a0a0ad2;
+        margin: 4px 5px 3px 5px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .boiteReaction i{
+        font-size: 13px;
+        /* margin: 2px; */
+        /* margin-left: 10px; */
+    }
+    .boiteReaction .nbrLike{
+        font-size: 13px;
+        margin-top: 2px;
+    }
+    .coms{
+        width: 4em;
+        height: 1.6em;
+        border: none;
+        border-radius: 7px;
+        margin: 4px 0px 0px 0px;
+        background-color: #0a0a0ad2;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .coms i{
+        font-size: 13px;
+    }
+    .coms .nbrComs{
+        font-size: 13px;
     }
     .containSaryAnarana{
         width: 50%;
@@ -564,6 +625,11 @@ body{
         margin-left: 5px;
         /* border: 1px solid; */
     }
+    .anarana2 .nameUser3{
+        font-weight: 550;
+        font-size: 15px;
+
+    }
     .close2{
         width: 10%;
         height: 100%;
@@ -571,36 +637,35 @@ body{
         font-family: Verdana, Tahoma, sans-serif;
         text-align: center;
         color: rgba(0, 0, 0, 0.562);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .antAnarana{
-        margin-top: 1em;
         font-weight: bold;
         font-size: 1em;
+        /* padding-top: -1em; */
         border: none;
         width: 2em;
         height: 2em;
-        border-radius: 15px;
-        background-color: white;
+        border-radius: 5px;
+        color: #fff;
+        transition: 0.5s;
+        cursor: pointer;
+
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: white; */
     }
     .antAnarana:hover{
-        color: red;
+        color: #5bb0d8;
+        transition: 0.5s;
+        /* background-color: #000000; */
     }
-    .boiteReaction{
-        width: 2.5em;
-        height: 2em;
-        border: none;
-        border-radius: 10px;
-        background-color: rgb(179, 179, 179);
-        margin: 4px 5px 3px 5px;
-    }
-    .nbrReaction{
-        width: 4em;
-        height: 1.5em;
-        border: none;
-        border-radius: 10px;
-        margin: 4px 0px 0px 0px;
-        background-color: rgb(179, 179, 179);
-    }
+    
     .borderLeft{
         /* border-left: 4px solid red; */
         border-color: red;
@@ -1115,6 +1180,9 @@ body{
     flex-flow: column;
     align-items: center;
     justify-content: center;
+}
+.contain2{
+    background-color: #0a0a0ad2;
 }
 .firstPub .containImgOrTxt img{
     width: 100%;
@@ -1748,4 +1816,145 @@ body{
     border: none;
     border-radius: 5px;
     color: white;
+}
+
+.pubVideo{
+    width: 100%;
+    height: 100vh;
+    background-color: #000000e0;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    visibility: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pubVideo form{
+    background-color: #fff;
+    width: 20em;
+    height: auto;
+    position: relative;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form .close{
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: -8px;
+    right: -6px;
+}
+form h4{
+    text-align: center;
+    height: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#Ifile1, #Ifile2{
+    display: none;
+}
+.poster{
+    /* border: 1px solid black; */
+    width: 12em;
+    height: 7em;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #c7c7c7;
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.play2{
+    width: 2em;
+    height: 2em;
+    /* border: 1px solid black; */
+    border-radius: 1em;
+    background-color: #000000c7;
+
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.play2 i{
+    color: #fff;
+    margin-right: -3px;
+}
+.chose{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    cursor: pointer;
+}
+.linkVideo{
+    border: 1px solid black;
+    width: 13em;
+    height: 1em;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 13px;
+    padding-left: 5px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.linkVideo .verrif{
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    margin-right: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.verrif i{
+    font-size: 6px;
+    display: none;
+}
+#Itext{
+    width: 14em;
+    height: 5em;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000a4;
+    padding-left: 5px;
+}
+#Isub{
+    width: 14em;
+    height: 2em;
+    margin-bottom: 10px;
+    background-color: #5bb0d8;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
 }

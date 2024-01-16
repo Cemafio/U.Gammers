@@ -1,3 +1,144 @@
+<?php
+    session_start();
+    include '../public/base.php';
+    include '../public/function.php';
+    
+    $list1='list1';
+    $list2='list2';
+    $list3='list3';
+    $list4='list5';
+    $list5='list5';
+
+    $html1 = '';
+    // $inc =0; 
+    $id = 0;
+    $color = '';
+
+    // bdd();
+    $sary = profilUser(bdd());
+
+    if(isset($_POST['pub'])){
+        // echo 'Publier';
+        pub(bdd(), $sary);
+    }
+
+    $pub = affPub(bdd());
+
+    
+    for($i =0; $i<count($pub); $i++){
+        
+        if(isset($_POST['like'.$i])){
+            $id = $pub[$i]['id'];
+            
+            like(bdd(), $id);
+            $color=  '#5bb0d8';         
+
+        }
+        if($pub[$i]['pubSary'] == '' || $pub[$i]['pubSary'] == null){
+
+            $html1.="<div class='containPub'>
+                <div  class='boite2Pub'>
+                    <div class='texPub'>
+                    <div class='containSaryAnarana'>
+                            <div class='sary2'>
+                            <img src='../img/". $pub[$i]['sary']."' alt='' style='width:100%;height:100%;border-radius: 30px'>
+                            </div>
+                            <div class='anarana2'>
+                                <p class='nameUser3'>".$pub[$i]['userPub']."</p>
+                                <p style='font-size:13px;color:#4b4b4b;'>".$pub[$i]['date']."</p>
+                            </div>
+                    </div>
+                    <div class='close2'>
+                        <p class='antAnarana'>x</p>
+                    </div>
+                    </div>
+                    <div class='containImgOrTxt contain2'>
+                        <p>".$pub[$i]['text']."</p>
+                    </div>
+                    <div class='reaction'>
+                        <div class='boiteReaction'>
+                            <form action='' method='post'>
+                                <label for='like".$i."' class='iconLike iLike' style=''>
+                                    <i class='fas fa-thumbs-up'></i>
+                                </label>
+                                <input type='submit' value='' style='display: none;' id='like".$i."' name='like".$i."'>
+                                <input type='hidden' name='id' id='identifiant' value='". $pub[$i]['id']."'>
+                            </form>
+                            <div class='nbrLike'>".$pub[$i]['nbrLike']."</div>
+                        </div>
+                        <div class='coms'>
+                                <a href='commentaires.php?di=".$pub[$i]['id']."' style='color: #fff;'>
+                                    <id for='like' class='iconLike'>
+                                        <i class='fas fa-comment-alt'></i>
+                                    </id>
+                                </a>
+                            <div class='nbrComs'>".$pub[$i]['nbrComs']."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+
+        }else{
+
+            $html1 .= "<div class='containPub'>
+                <div  class='boite2Pub'>
+                    <div class='texPub'>
+                    <div class='containSaryAnarana'>
+                            <div class='sary2'>
+                                <img src='../img/". $pub[$i]['sary']."' alt='' srcset='' style='width:100%;height:100%;border-radius: 30px'>
+                            </div>
+                            <div class='anarana2'>
+                                <p class='nameUser3'>".$pub[$i]['userPub']."</p>
+                                <p style='font-size:13px;color:#4b4b4b;'>".$pub[$i]['date']."</p>
+                            </div>
+                    </div>
+                    <div class='close2'>
+                        <p class='antAnarana'>x</p>
+                    </div>
+                    </div>
+                    <div class='legende2'>
+                        <p class='textLegende2'>
+                        ".$pub[$i]['text']."
+                        </p>
+                    </div>
+                    <div class='phot'>
+                        <img src='../img/".$pub[$i]['pubSary']."' alt='' srcset='' style='width:100%;height:100%'>
+                    </div>
+                    <div class='reaction'>
+                        <div class='boiteReaction'>
+                            <form action='' method='post'>
+                                <label for='like".$i."' class='iconLike iLike' style=''>
+                                    <i class='fas fa-thumbs-up'></i>
+                                </label>
+
+                                <input type='submit' value='' style='display: none;' id='like".$i."' name='like".$i."'>
+
+                                <input type='hidden' name='id' id='identifiant' value='".$pub[$i]['id']."'>
+                            </form>
+                            <div class='nbrLike'>".$pub[$i]['nbrLike']."</div>
+                        </div>
+                        <div class='coms'>
+                                <a href='commentaires.php?di=".$pub[$i]['id']."' style='color: #fff;'>
+                                    <id for='like' class='iconLike'>
+                                        <i class='fas fa-comment-alt'></i>
+                                    </id>
+                                </a>
+                            <div class='nbrComs'>".$pub[$i]['nbrComs']."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+        }
+
+        
+        // $inc =$inc + 1;
+        
+    };
+    
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +149,8 @@
     <link rel="shortcut icon" href="../Img/Capture d’écran 2023-10-23 214447.png" type="image/x-icon">
     <script src="../JS/App.js" defer></script>
     <script src="../JS/slideVideo.js" defer></script>
+    <script src="../JS/like.js" defer></script>²
+    <script src="../JS/form1.js" defer></script>
 
     <link rel="stylesheet" href="../CSS/App.css">
     <title>U.Gammeur</title>
@@ -18,14 +161,14 @@
         <div class="containForm">
             <div class="containProfil2">
                 <div class="profilUser">
-
+                    <img src="../Img/<?= $sary;?>" alt="" style="width: 100%; height: 100%;border-radius: 3em;">
                 </div>
                 <div class="nameUser2">
-                    <p>Name User</p>
+                    <p><?= $_SESSION['nameUser'];?></p>
                 </div>
             </div>
             
-            <form action="" class="form1">
+            <form action="" class="form1" method='POST'>
                 <div class="Ilegend">
                     <!-- <p class="sousForme">À quoi pensez-vous ?</p> -->
                     <textarea name="tLegend" id="Ilegend" cols="33" rows="5" placeholder="À quoi pensez-vous ?" spellcheck="true"></textarea>
@@ -72,7 +215,7 @@
                     <input type="file" name="IPhoto" id="IPhoto">
                 </div>
                 <div class="containBtn2">
-                    <button type="button" class="btn2">PUBLIER</button>
+                    <input type="submit" class="btn2" name='pub' value="PUBLIER"/>
                 </div>
             </form>
             <div class="btnX">
@@ -82,65 +225,7 @@
         
     </section>
    <section class="containAll2">
-    <nav class="menu2">
-        <div class="menu2-contain">
-            <div class="containLogo">
-                <p class="textLogo">U.Gammeur</p>
-            </div>
-            <ul>
-                <li class="menu2-contain2-1 menuli2 list" id="list1">
-                    <div class="icon1">
-                       <i class="fas fa-home"></i>
-                    </div>
-                    <p class="text-icon1"><a href="Acceuil.html">Accueil</a></p>
-                </li>
-                <!-- <li class="menu2-contain2-1 menuli2 list" id="list2">
-                    <div class="icon1">
-                        <img src="Img/Cesar.jpg" alt="" class="sary">
-                    </div>
-                    <p class="text-icon1"><a href="page/profil.html"> Profiles</a></p>
-                </li> -->
-            </ul>
-            
-            <ul>
-                <li class="menu2-contain2-1 menuli2 list" id="list3">
-                       <div class="icon1">
-                        <i class="fas fa-video"></i>
-                       </div>
-                    <p class="text-icon1"><a href="Video.html">Video</a></p>
-                </li>
-                <li class="menu2-contain2-1 menuli2 list" id="list4">
-                    <div class="icon1">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <p class="text-icon1"> <a href="Game.html">Gamme</a></p>
-                </li>
-                <li class="menu2-contain2-1 menuli2 list" id="list5">
-                    <div class="icon1">
-                        <i class="fas fa-folder"></i>
-                    </div>
-                    <p class="text-icon1"><a href="Music.html">Play list</a></p>
-                </li>
-                <li class="menu2-contain2-1 menuli2 list" id="list5">
-                    <div class="icon1">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <p class="text-icon1"><a href="Music.html">Paramètre</a></p>
-                </li>
-            </ul>
-            <div class="btnPubl">
-                <div class="containBtn0">
-                    <button class="btn0 ">Faire une publication</button>
-                </div>
-                <!-- <div class="containBtn1">
-                    <button class="btn1">Faire un Storie</button>
-                </div>
-                <div class="containBtn1">
-                    <button class="btn1">Faire un pub Video</button>
-                </div> -->
-            </div>
-        </div>
-    </nav>
+    <?php include 'header.php';?>
     <nav class="containerAll">
         <!-- <div>
              <ul class="container1-2">
@@ -168,7 +253,7 @@
         </div>
          <div>
              <ul class="container1-3">
-                 <li class="mess"><a href="message.html"><i class="fab fa-facebook-messenger"></i></a></li>
+                 <li class="mess"><a href="message.php"><i class="fab fa-facebook-messenger"></i></a></li>
                  <li class="notif"><i class="fas fa-bell"><a href="#"></a></i></li>
                  <li class="option">
                      <img src="../Img/Cesar.jpg" alt="Option">
@@ -222,6 +307,9 @@
                     </div>
                 </div>
             </div>
+           
+            <?= $html1;?> 
+            
         </div>
       
     </section>
@@ -239,10 +327,10 @@
                 </div>
 
                 <div class="min_profilUser">
-                    <img src="../Img/perso.jpg" alt="" style="width: 95%; height: 95%;border-radius: 3em;">
+                    <img src="../Img/<?= $sary;?>" alt="" style="width: 95%; height: 95%;border-radius: 3em;">
                 </div>
                 <div class="nameUser">
-                    <p>Nom utilisateur</p>
+                    <p><?= $_SESSION['nameUser'];?></p>
                 </div>
                 <!-- <div class="containtextMinP">
                     <p class="textMinP">Votre compte actuèlle possède :</p>
@@ -300,27 +388,7 @@
 
     
 
-        <!-- Carte de publication -->
-            <!-- <div class="containPub">
-                <div  class="boite2Pub">
-                    <div class="texPub">
-                       <div class="containSaryAnarana">
-                            <div class="sary2"></div>
-                            <div class="anarana2">
-                                <p >Nom utilisateur</p>
-                            </div>
-                       </div>
-                       <div class="close2">
-                         <p class="antAnarana">X</p>
-                       </div>
-                    </div>
-                    <div class="phot"></div>
-                    <div class="reaction">
-                        <div class="boiteReaction"></div>
-                        <div class="nbrReaction"></div>
-                    </div>
-                </div>
-            </div> -->
+        
 
      </section>
    </section>

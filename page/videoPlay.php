@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include '../public/base.php';
+    include '../public/function.php';
+
+    $video = voirVideo(bdd());
+    $sary = profilUser(bdd());
+    $comsVideo = afficheComsVideo(bdd());
+
+    if(isset($_POST['envComs'])){
+        $err = creatComsVideo(bdd(), $sary);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,36 +24,42 @@
 <body>
     <header>
         <div class="back">
-            <a href="Video.html"><i class="fas fa-arrow-left"></i></a>
+            <a href="Video.php"><i class="fas fa-arrow-left"></i></a>
         </div>
         <p class="logo">U.GAMERS</p>
     </header>
     <section class="containPrincipale">
         <div class="cadre1">
             <div class="video">
-                <video controls="controls" preload="auto" poster="../Img/Asphalt 9 legends.jpg">
-                    <source src="../video/video1.mp4"></source>
+                <video controls="controls" preload="auto" poster="../Img/<?= $video['poster'];?>">
+                    <source src="../video/<?= $video['video'];?>"></source>
                     <source src="../video/video1.webm"></source>
                     <source src="../video/video1.ogg"></source>
                 </video>
                 <div class="apropos">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa asperiores velit voluptatum at aliquam reprehenderit! Totam quo pariatur laborum soluta.</p>
+                    <p><?= $video['text'];?></p>
                 </div>
                 <p class="comsTitre">Les commentaires</p>
 
                 <div class="commentaires">
+                    <?php
+                    foreach($comsVideo as $coms):
+                    ?>
                     <div class="commentaire">
                         <div class="coms1">
                             <div class="profil">
-                                <img src="../Img/perso.jpg" alt="" srcset="">
+                                <img src="../Img/<?=$coms['profil'];?>" alt="" srcset="">
                             </div>
-                            <p> <strong style="color: #5bb0d8;">Cesar Marcellin</strong><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed similique illo quas distinctio doloremque nobis recusandae, unde ab! Animi est fugit nam quod explicabo sed magni nulla nisi similique distinctio.</p>
+                            <p> <strong style="color: #5bb0d8;"><?=$coms['name'];?></strong><br> <?=$coms['coms'];?></p>
                             <div class="pointeur"></div>
                         </div>
                     </div>
+                    <?php
+                    endforeach;
+                    ?>
                     <form action="" method="post">
                         <textarea name="coms" id="Icoms" cols="50" rows="3" placeholder="Votre commentaires ici"></textarea>
-                        <input type="submit" value="Evoyer" id="Isub">
+                        <input type="submit" value="Evoyer" id="Isub" name="envComs">
                     </form>
                 </div>
             </div>
