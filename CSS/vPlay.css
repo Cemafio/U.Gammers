@@ -162,6 +162,8 @@ header{
     margin-top: -1em;
     margin-right: 10px;
     overflow: hidden;
+
+    align-self: flex-start;
 }
 .profil img{
     width: 100%;

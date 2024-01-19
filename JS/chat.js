@@ -88,62 +88,62 @@ for(let i=0;i<li.length;i++){
 }
 
 // ENvoy de notre message
-const inptChat= document.querySelector('#Ichat');
-const boitMess = document.querySelector('.boitMess')
+// const inptChat= document.querySelector('#Ichat');
+// const boitMess = document.querySelector('.boitMess')
 
 
-console.log(inptChat.placeholder)
-inptChat.addEventListener('focus',()=>{
-    // alert("Ecriture de message en cours");
+// console.log(inptChat.placeholder)
+// inptChat.addEventListener('focus',()=>{
+//     // alert("Ecriture de message en cours");
 
-    inptChat.style.width = '30em';
-    inptChat.style.height = '3em';
-    inptChat.style.marginRight = '-20em';
-    // inptChat.style.paddingTop = '9px';
-    inptChat.placeholder = 'Ecrivez un message'
-    // inptChat.style.borderColor = '#5bb0d8';
-    inptChat.style.transition = '0.5s';
-})
+//     inptChat.style.width = '30em';
+//     inptChat.style.height = '3em';
+//     inptChat.style.marginRight = '-20em';
+//     // inptChat.style.paddingTop = '9px';
+//     inptChat.placeholder = 'Ecrivez un message'
+//     // inptChat.style.borderColor = '#5bb0d8';
+//     inptChat.style.transition = '0.5s';
+// })
 
-inptChat.addEventListener('blur',()=>{
-    // alert("Ecriture de message en cours");
+// inptChat.addEventListener('blur',()=>{
+//     // alert("Ecriture de message en cours");
 
-    inptChat.style.width = '25em';
-    inptChat.style.height = '2.5em';
-    inptChat.style.marginRight = '-25em';
-    // inptChat.style.paddingTop = '6px';
-    inptChat.placeholder = 'Message'
+//     inptChat.style.width = '25em';
+//     inptChat.style.height = '2.5em';
+//     inptChat.style.marginRight = '-25em';
+//     // inptChat.style.paddingTop = '6px';
+//     inptChat.placeholder = 'Message'
 
-    // inptChat.style.borderColor = 'black';
+//     // inptChat.style.borderColor = 'black';
 
-    inptChat.style.transition = '0.5s';
-})
-window.addEventListener('keypress',(e)=>{
-    if(e.key === "Enter"){
-        if(inptChat.value != ""){
-            let divListMess = document.createElement('div');
-            let divMess = document.createElement('div');
-            let p = document.createElement('p'); 
+//     inptChat.style.transition = '0.5s';
+// })
+// window.addEventListener('keypress',(e)=>{
+//     if(e.key === "Enter"){
+//         if(inptChat.value != ""){
+//             let divListMess = document.createElement('div');
+//             let divMess = document.createElement('div');
+//             let p = document.createElement('p'); 
 
-            divListMess.classList.add('listMess');
-            divMess.classList.add('mess');
-            p.classList.add('messEnv');
-            p.textContent = inptChat.value;
+//             divListMess.classList.add('listMess');
+//             divMess.classList.add('mess');
+//             p.classList.add('messEnv');
+//             p.textContent = inptChat.value;
 
-            boitMess.appendChild(divListMess);
-            divListMess.appendChild(divMess);
-            divMess.appendChild(p)
+//             boitMess.appendChild(divListMess);
+//             divListMess.appendChild(divMess);
+//             divMess.appendChild(p)
             
-            boitMess.scrollTop += 100;
+//             boitMess.scrollTop += 100;
 
-            inptChat.value = '';
-        }
-        // alert('Vous avez tapez Enter')
+//             inptChat.value = '';
+//         }
+//         // alert('Vous avez tapez Enter')
             
            
-    }  
+//     }  
 
-})
+// })
 
-console.log(window.scroll);
+// console.log(window.scroll);
 

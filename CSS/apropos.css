@@ -149,9 +149,13 @@ a{
     width: 2.5em;
     height: 2.5em;
     border: 1px solid #525252;
-    margin-top: -6em;
+    /* margin-top: -6em; */
     margin-right: 10px;
     overflow: hidden;
+
+    /* position: absolute; */
+    /* top: 5px; */
+    align-self: flex-start;
 }
 .profil img{
     width: 100%;
@@ -204,7 +208,7 @@ form{
 .videAide{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .vid{
     width: 9em;

@@ -9,7 +9,11 @@
     $list4='list5';
     $list5='list5';
 
+    $dispar = false;
+
+
     $html1 = '';
+    $html2 = '';
     // $inc =0; 
     $id = 0;
     $color = '';
@@ -39,7 +43,7 @@
             $html1.="<div class='containPub'>
                 <div  class='boite2Pub'>
                     <div class='texPub'>
-                    <div class='containSaryAnarana'>
+                        <div class='containSaryAnarana'>
                             <div class='sary2'>
                             <img src='../img/". $pub[$i]['sary']."' alt='' style='width:100%;height:100%;border-radius: 30px'>
                             </div>
@@ -47,10 +51,17 @@
                                 <p class='nameUser3'>".$pub[$i]['userPub']."</p>
                                 <p style='font-size:13px;color:#4b4b4b;'>".$pub[$i]['date']."</p>
                             </div>
-                    </div>
-                    <div class='close2'>
-                        <p class='antAnarana'>x</p>
-                    </div>
+                        </div>
+                        <div class='enreg'>
+                            <p>...</p>
+                            <form action='' method='post' class='confirm'>
+                                <input name='id' type='hidden' value='".$pub[$i]['id']."'/>
+                                <input type='submit' id='Ienreg' value='Enregistrer' name='enreg'/>
+                            </form>
+                        </div>
+                        <div class='close2'>
+                            <p class='antAnarana'>x</p>
+                        </div>
                     </div>
                     <div class='containImgOrTxt contain2'>
                         <p>".$pub[$i]['text']."</p>
@@ -91,6 +102,13 @@
                                 <p class='nameUser3'>".$pub[$i]['userPub']."</p>
                                 <p style='font-size:13px;color:#4b4b4b;'>".$pub[$i]['date']."</p>
                             </div>
+                    </div>
+                    <div class='enreg'>
+                        <p>...</p>
+                        <form action='' method='post' class='confirm'>
+                            <input name='id' type='hidden' value='".$pub[$i]['id']."'/>
+                            <input type='submit' id='Ienreg' value='Enregistrer' name='enreg'/>
+                        </form>
                     </div>
                     <div class='close2'>
                         <p class='antAnarana'>x</p>
@@ -135,8 +153,139 @@
         
     };
     
+    if(isset($_POST['enreg'])){
+        enregisterPub(bdd());
+    }
 
+    if(isset($_POST['rech'])){
+        if(!empty($_POST['recherche'])){
+            $result = rechAcceuil(bdd());
 
+            for($i =0; $i<count($result); $i++){
+        
+                if(isset($_POST['like'.$i])){
+                    $id = $result[$i]['id'];
+                    
+                    like(bdd(), $id);
+                    $color=  '#5bb0d8';         
+        
+                }
+                if($result[$i]['pubSary'] == '' || $result[$i]['pubSary'] == null){
+        
+                    $html2.="<div class='containPub'>
+                        <div  class='boite2Pub'>
+                            <div class='texPub'>
+                                <div class='containSaryAnarana'>
+                                    <div class='sary2'>
+                                    <img src='../img/". $result[$i]['sary']."' alt='' style='width:100%;height:100%;border-radius: 30px'>
+                                    </div>
+                                    <div class='anarana2'>
+                                        <p class='nameUser3'>".$result[$i]['userPub']."</p>
+                                        <p style='font-size:13px;color:#4b4b4b;'>".$result[$i]['date']."</p>
+                                    </div>
+                                </div>
+                                <div class='enreg'>
+                                    <p>...</p>
+                                    <form action='' method='post' class='confirm'>
+                                        <input name='id' type='hidden' value='".$result[$i]['id']."'/>
+                                        <input type='submit' id='Ienreg' value='Enregistrer' name='enreg'/>
+                                    </form>
+                                </div>
+                                <div class='close2'>
+                                    <p class='antAnarana'>x</p>
+                                </div>
+                            </div>
+                            <div class='containImgOrTxt contain2'>
+                                <p>".$result[$i]['text']."</p>
+                            </div>
+                            <div class='reaction'>
+                                <div class='boiteReaction'>
+                                    <form action='' method='post'>
+                                        <label for='like".$i."' class='iconLike iLike' style=''>
+                                            <i class='fas fa-thumbs-up'></i>
+                                        </label>
+                                        <input type='submit' value='' style='display: none;' id='like".$i."' name='like".$i."'>
+                                        <input type='hidden' name='id' id='identifiant' value='". $result[$i]['id']."'>
+                                    </form>
+                                    <div class='nbrLike'>".$result[$i]['nbrLike']."</div>
+                                </div>
+                                <div class='coms'>
+                                        <a href='commentaires.php?di=".$result[$i]['id']."' style='color: #fff;'>
+                                            <id for='like' class='iconLike'>
+                                                <i class='fas fa-comment-alt'></i>
+                                            </id>
+                                        </a>
+                                    <div class='nbrComs'>".$result[$i]['nbrComs']."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+        
+                }else{
+        
+                    $html2 .= "<div class='containPub'>
+                        <div  class='boite2Pub'>
+                            <div class='texPub'>
+                            <div class='containSaryAnarana'>
+                                    <div class='sary2'>
+                                        <img src='../img/". $result[$i]['sary']."' alt='' srcset='' style='width:100%;height:100%;border-radius: 30px'>
+                                    </div>
+                                    <div class='anarana2'>
+                                        <p class='nameUser3'>".$result[$i]['userPub']."</p>
+                                        <p style='font-size:13px;color:#4b4b4b;'>".$result[$i]['date']."</p>
+                                    </div>
+                            </div>
+                            <div class='enreg'>
+                                <p>...</p>
+                                <form action='' method='post' class='confirm'>
+                                    <input name='id' type='hidden' value='".$result[$i]['id']."'/>
+                                    <input type='submit' id='Ienreg' value='Enregistrer' name='enreg'/>
+                                </form>
+                            </div>
+                            <div class='close2'>
+                                <p class='antAnarana'>x</p>
+                            </div>
+                            </div>
+                            <div class='legende2'>
+                                <p class='textLegende2'>
+                                ".$result[$i]['text']."
+                                </p>
+                            </div>
+                            <div class='phot'>
+                                <img src='../img/".$result[$i]['pubSary']."' alt='' srcset='' style='width:100%;height:100%'>
+                            </div>
+                            <div class='reaction'>
+                                <div class='boiteReaction'>
+                                    <form action='' method='post'>
+                                        <label for='like".$i."' class='iconLike iLike' style=''>
+                                            <i class='fas fa-thumbs-up'></i>
+                                        </label>
+        
+                                        <input type='submit' value='' style='display: none;' id='like".$i."' name='like".$i."'>
+        
+                                        <input type='hidden' name='id' id='identifiant' value='".$result[$i]['id']."'>
+                                    </form>
+                                    <div class='nbrLike'>".$result[$i]['nbrLike']."</div>
+                                </div>
+                                <div class='coms'>
+                                        <a href='commentaires.php?di=".$result[$i]['id']."' style='color: #fff;'>
+                                            <id for='like' class='iconLike'>
+                                                <i class='fas fa-comment-alt'></i>
+                                            </id>
+                                        </a>
+                                    <div class='nbrComs'>".$result[$i]['nbrComs']."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+                }
+        
+                
+                // $inc =$inc + 1;
+                
+            };
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -215,7 +364,7 @@
                     <input type="file" name="IPhoto" id="IPhoto">
                 </div>
                 <div class="containBtn2">
-                    <input type="submit" class="btn2" name='pub' value="PUBLIER"/>
+                    <input type="submit" class="btn2" name='result$result' value="PUBLIER"/>
                 </div>
             </form>
             <div class="btnX">
@@ -235,53 +384,33 @@
         <div>
          <ul>
              <li class="contenue2">
+                <form action="" method="post" style="display:flex;align-items:center;">
                  <input type="text" name="recherche" id="recherche" placeholder="Recherche sur mon App">
                  <div class="class">
-                    <button class="btnSerc">
+                    <button class="btnSerc" type="submit" name="rech">
                         <i class="fas fa-search"></i>
                     </button>
-                    
-                 </div>
+                 </div></form>
              </li>
          </ul>
         </div>
-        <div class="mode">
+        <!-- <div class="mode">
             <i class="fas fa-moon"></i>
-        </div>
-        <div class="nameMode">
+        </div> -->
+        <!-- <div class="nameMode">
             <p>Nuit</p>
-        </div>
+        </div> -->
          <div>
              <ul class="container1-3">
-                 <li class="mess"><a href="message.php"><i class="fab fa-facebook-messenger"></i></a></li>
+                 <li class="mess"><a href="message.php?id=<?= $_SESSION['idUser'];?>&discu="><i class="fab fa-facebook-messenger"></i></a></li>
                  <li class="notif"><i class="fas fa-bell"><a href="#"></a></i></li>
-                 <li class="option">
+                 <!-- <li class="option">
                      <img src="../Img/Cesar.jpg" alt="Option">
-                 </li>
+                 </li> -->
              </ul>
          </div>
      </nav>
     <section class="containePrincipale">
-        <!-- Construction de notre storie -->
-
-        <!-- <div class="cadreStorie">
-            <div class="storie storiRot0">
-                <img src="../Img/Cesar.jpg" alt="" srcset="" class="imgS">
-            </div>
-            <div class="storie storiRot1">
-                <img src="../Img/926668.jpg" alt="" srcset="" class="imgS">
-            </div>
-            <div class="storie storiM">
-                <img src="../Img/Capture d’écran 2023-10-23 214447.png" alt="" srcset="" class="imgS">
-            </div>
-            <div class="storie storiRot2">
-                <img src="../Img/929203.jpg" alt="" srcset="" class="imgS">
-            </div>
-            <div class="storie storiRot3">
-                <img src="" alt="" srcset="" class="imgS">
-            </div>
-        </div> -->
-
         <div class="cadrePub">
             <div class="firstPub">
                 
@@ -307,90 +436,26 @@
                     </div>
                 </div>
             </div>
+           <?php
+            if(!isset($_POST['rech']) || empty($_POST['recherche'])){
+           ?>
+
+           <?= $html1;?> 
            
-            <?= $html1;?> 
-            
+           <?php 
+            }else{
+           ?>
+
+            <?= $html2;?>
+             
+           <?php
+            }
+           ?>
         </div>
       
     </section>
  
-     <section class="contenuProfil">
-        
-            <div class="miniProfil">
-                <div class="containRect">
-                    <div class="rectangle rect3"></div>
-                    <div class="rectangle"></div>
-                    <div class="rectangle rect2"></div>
-                </div>
-                <div class="badgeVip">
-                    <div class="textVip">VIP</div>
-                </div>
-
-                <div class="min_profilUser">
-                    <img src="../Img/<?= $sary;?>" alt="" style="width: 95%; height: 95%;border-radius: 3em;">
-                </div>
-                <div class="nameUser">
-                    <p><?= $_SESSION['nameUser'];?></p>
-                </div>
-                <!-- <div class="containtextMinP">
-                    <p class="textMinP">Votre compte actuèlle possède :</p>
-                </div> -->
-                <div class="containInformation">
-                    <div class="div1">
-                        <div class="followers">
-                            <p class="pFollowers">Followers</p>
-                        </div>
-                        <div class="nbrFollowers">
-                            <p class="pnbrFollowers">0</p>
-                        </div>
-                    </div>
-                    <div class="div2">
-                        <div class="ami(e)s">
-                            <p class="pAmies">Ami(e)s</p>
-                        </div>
-                        <div class="nbrAmi(e)s">
-                            <p class="pnbrAmie">0</p>
-                        </div>
-                    </div>
-                    <div class="div3">
-                        <div class="invitation">
-                            <p class="pInvitation">Invitation</p>
-                        </div>
-                        <div class="nbrinvitation">
-                            <p class="pnbrInvitation">0</p>
-                        </div>
-                    </div>
-                    <div class="div4">
-                        <div class="Active">
-                            <p class="pActive">Active</p>
-                        </div>
-                        <div class="nbrActive">
-                            <p class="pnbrActive">0</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="btnProfil">
-                    <button class="btnP">Theme</button>
-                </div> -->
-            </div>
-
-            <div class="miniProfil2">
-                <video class="source" preload="auto" autoplay muted playsinline>
-                    <source src="../video/video1.mp4" ></source>
-                    <source src="../video/video1.webm" class=""></source>
-                    <source src="../video/video1.ogg" class=""></source>
-                </video>
-                <div class="bar">
-                    <div class="progressBar"></div>
-                </div>
-            </div>
-       
-
-    
-
-        
-
-     </section>
+   <?php include 'miniProfil.php';?>
    </section>
     
 </body>

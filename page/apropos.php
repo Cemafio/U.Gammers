@@ -1,3 +1,20 @@
+<?php
+    session_start();
+    include '../public/base.php';
+    include '../public/function.php';
+
+    $game = voirGame(bdd());
+    $video = recupVideo(bdd(), $game);
+    $sary = profilUser(bdd());
+    $coms = afficheComsGame(bdd());
+
+    if(isset($_POST['env'])){
+        if(!empty($_POST['coms'])){
+            $err= comsGame(bdd(), $sary);
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +30,7 @@
         <header>
             
             <div class="containBack">
-                <a href="Game.html"><i class="fas fa-arrow-left"></i></a>
+                <a href="Game.php"><i class="fas fa-arrow-left"></i></a>
             </div>
             
         </header>
@@ -22,71 +39,56 @@
     <section class="containApropos">
         <div class="cadreAprops">
             <div class="cadrePhoto">
-                <img src="../Img/Asphalt 9 legends.jpg" alt="" srcset="">
+                <img src="../Img/<?= $game['img'];?>" alt="" srcset="">
             </div>
             <div class="cadretexte">
                 <p>Scenario</p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nesciunt necessitatibus modi dignissimos esse, ipsum totam doloribus sunt illum ab aliquam fuga nostrum at. Nemo harum, excepturi corrupti blanditiis consequuntur iusto mollitia, dolorem explicabo enim, vitae beatae reiciendis dolor ut.
+                <?= $game['histoire'];?>
             </div>
             <div class="cadreConfig">
                 <p>Configuration</p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nesciunt necessitatibus modi dignissimos esse, ipsum totam doloribus sunt illum ab aliquam fuga nostrum at. Nemo harum, excepturi corrupti blanditiis consequuntur iusto mollitia, dolorem explicabo enim, vitae beatae reiciendis dolor ut.
+                <?= $game['config'];?>
             </div>
             <p class="comsTitre">Video et code (Aide)</p>
             <div class="videAide">
+                <?php
+                    foreach($video as $v):
+                ?>
                 <div class="vid">
                     <div class="play">
+                        <a href="videoPlay.php?di=<?= $v['id'];?>">
                         <i class="fas fa-play"></i>
+                        </a>
                     </div>
-                    <img src="../Img/Asphalt 9 legends.jpg" alt="" srcset="">
+                    <img src="../Img/<?= $v['poster'];?>" alt="" srcset="">
                     <p class="textCode">O X X Y R2 </p>
                     
                 </div>
-                <!-- <div class="vid">
-                    <img src="../Img/Asphalt.jpg" alt="" srcset="">
-                </div> -->
-                <div class="vid">
-                    <div class="play">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <img src="../Img/Asphalte4.jpg" alt="" srcset="">
-                    <p class="textCode">O X X Y R2 </p>
-                </div>
-                <div class="vid">
-                    <div class="play">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <img src="../Img/Asphalte3.jpg" alt="" srcset="">
-                    <p class="textCode">O X X Y R2 </p>
-
-                </div>
-                <div class="vid">
-                    <div class="play">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <img src="../Img/asphaslt2.jpg" alt="" srcset="">
-                <p class="textCode">X X X <i class="fas fa-arrow-left"></i> R2 </p>
-
-                </div>
+                <?php
+                    endforeach;
+                ?>
             </div>
-            <!-- <div class="code">
-                
-            </div> -->
 
             <p class="comsTitre">Les commentaires</p>
 
             <div class="commentaire">
+                <?php
+                    foreach($coms as $c):
+                ?>
                 <div class="coms1">
                     <div class="profil">
-                        <img src="../Img/perso.jpg" alt="" srcset="">
+                        <img src="../Img/<?= $c['profil'];?>" alt="" srcset="">
                     </div>
-                    <p> <strong style="color: #5bb0d8;">Cesar Marcellin</strong><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed similique illo quas distinctio doloremque nobis recusandae, unde ab! Animi est fugit nam quod explicabo sed magni nulla nisi similique distinctio.</p>
+                    <p> <strong style="color: #5bb0d8;"><?= $c['pers'];?></strong><br> <?= $c['coms'];?></p>
                     <div class="pointeur"></div>
                 </div>
+                <?php
+                    endforeach;
+                ?>
             </div>
             <form action="" method="post">
                 <textarea name="coms" id="Icoms" cols="50" rows="3" placeholder="Votre commentaires ici"></textarea>
-                <input type="submit" value="Evoyer" id="Isub">
+                <input type="submit" value="Evoyer" id="Isub" name="env">
             </form>
         </div>
     </section>

@@ -17,6 +17,9 @@ body{
 .pouceBleu{
     color: #5bb0d8 !important;
 }
+.apparition{
+    visibility: visible!important;
+}
     .containerAll{
         position: fixed;
         top: 0px;  
@@ -41,7 +44,7 @@ body{
         align-items: center;
     }
     .contenue2{
-        margin-right: 24em;
+        margin-right: 28.5em;
 
         display: flex;
         align-items: center;
@@ -110,6 +113,7 @@ body{
         display: flex;
         justify-content: flex-end;
         width: 200px;
+        margin-right: 1em;
     }
     .mess,.notif,.option{
         width: 40px;
@@ -262,7 +266,7 @@ body{
     .containVideo{
         border-radius: 1em;
         width: 48.5em;
-        margin-top: 3.5em;
+        margin-top: 0.5em;
         /* height: 35.2em; */
         /* margin-top: 5em; */
         /* border: 1px solid white; */
@@ -290,6 +294,15 @@ body{
     border-radius: 10px;
     background-color: #1b1b1b;
     position: relative;
+}
+.vVideo form{
+    position: absolute;
+    right: 0;
+}
+.vVideo form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sousformVideo{
     width: 100%;
@@ -826,7 +839,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-flow: wrap column;
-    border-top: 1px solid #000000b0;
+    /* border-top: 1px solid #000000b0; */
 }
 .btn0, .btn1{
     width: 12em;
@@ -1432,7 +1445,7 @@ body{
 }
 .aprp{
     /* border: 1px solid white; */
-    height: 4.8em;
+    /* height: 4.8em; */
     margin-top: 5px;
     border-bottom-right-radius: 1em;
     border-bottom-left-radius: 1em;
@@ -1442,15 +1455,22 @@ body{
     margin: 4px;
 }
 .aprp1{
+    width: 5em;
     height: 1em;
     margin-bottom: 10px;
     margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+}
+.aprp1 .typeG{
+    margin: 0px 5px 0px 0px;
 }
 .aprp1 p{
     color: white;
     font-size: 10px;
     border: 1px solid white;
-    width: 4em;
+    /* width: 4em; */
     height: 1.2em;
     padding: 3px;
     border-radius: 5px;
@@ -1957,4 +1977,60 @@ form h4{
     border: none;
     border-radius: 3px;
     color: #fff;
+}
+.enreg{
+    /* border: 1px solid white; */
+    width: 3em;
+    height: 100%;
+    margin-right: -11em;
+    font-weight: bold;
+    font-size: 20px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.enreg p{
+    margin-top: -5px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .enreg form{
+    position: absolute;
+    bottom: -20px;
+} */
+.confirm{
+    position: absolute;
+    bottom: -20px;
+    right: -3em;
+
+
+    visibility: hidden;
+
+    border-radius: 2px;
+    cursor: pointer;
+}
+#Ienreg{
+    font-size: 13px!important;
+    background-color: #000000d3;
+    height: 2.5em;
+    color: white;
+    width: 9em;
+    border: none;
+    text-align: left;
+    padding-left: 10px;
+    font-weight: lighter!important;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+#Ienreg:hover{
+    background-color: #00000075;
 }

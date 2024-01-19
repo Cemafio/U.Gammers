@@ -40,9 +40,15 @@
             </li>
         </ul>
         <div class="btnPubl">
+            <?php
+                if($dispar == false):
+            ?>
             <div class="containBtn0">
                 <button class="btn0 btnVid">Faire une publication</button>
             </div>
+            <?php
+                endif;
+            ?>
             <!-- <div class="containBtn1">
                 <button class="btn1">Faire un Storie</button>
             </div>
